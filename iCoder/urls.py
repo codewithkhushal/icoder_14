@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 admin.site.site_header="iCoder Admin"
 admin.site.site_title="iCoder Admin Panel"
@@ -25,3 +26,5 @@ urlpatterns = [
     path('', include('home.urls')),
     path('blog/', include('blog.urls')),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
