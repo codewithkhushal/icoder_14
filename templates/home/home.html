@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock title %}
+{% block homeactive %} active {% endblock homeactive %}
+
+{% block body %}
+<div class="jumbotron p-2 p-md-5 text-white rounded bg-primary  m-2 active">
+  <div class="col-md-7  px-0">
+    <h1 class="display-4 font-italic">Welcome to iCoder</h1>
+    <p class="lead my-3">Confused on which course to take? I have got you covered. Browse courses and find out the best course for you. Its free! iCoder is my attempt to teach basics and those coding techniques to people in short time which took me ages to learn.</p>
+    <p class="lead mb-0"><a href="/blog" class="text-white font-weight-bold">Explore Blog...</a></p>
+
+  </div>
+</div>
+
+<div>
+  <hr>
+  <h3 class="ml-2 mt-5">LATEST POST : </h3>
+  <div class="card-deck m-3">
+  {% for post in allPosts  %}
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><a class="text-dark" href="/blog/{{post.slug}}">{{post.title}} </a> </h5>
+        <p class="card-text">{{post.content|safe| truncatechars:50}}  </p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  </div>
+
+{% endblock body %}
